@@ -1,0 +1,12 @@
+# Project exclude paths
+/spring-09-MVC-Model/target/
+/target/
+.idea
+pom.xml
+/shelf/
+/workspace.xml
+# Editor-based HTTP Client requests
+/httpRequests/
+# Datasource local storage ignored files
+/dataSources/
+/dataSources.local.xml

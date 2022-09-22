@@ -1,0 +1,106 @@
+Spring Boot Structure:
+
+src/main/java : Contains application source code
+src/main/resources : Contains non-java resources
+src/test/java : Contains test code
+
+mvnw and mvnw.cmd :  These are maven wrapper scripts. You can use these scripts to build your project, even if you do not have Maven installed on your machine
+
+pom.xml : This is the Maven build specification
+
+
+CydeoApplicatiopn.java : This is the Spring Boot main class that bootstrapts the project.
+
+application.properties : This file initially empty but offers a place where you can specify configuration properties
+
+resources/static : Contains any static content(images,css,js,etc)
+
+resources/templates : Contains template file that will be used to render content to the browser(Thymeleaf)
+
+CydeoApplicationTests : This is a simple test class that ensures that the Spring application context loads successfully You will add more tests to the mix as you develop the application.
+
+
+-------
+
+Build Spring Specification:
+
+
+	<parent> :  This specifies that your project has spring-boot-starter-parent as its parent POM. This parent POM provides dependecny management for several libraries commonly used in Spring projects. For those libraries covered by the parent POM, you wont have to specify a version, because it is inherited from the parent.
+
+	All dependencies have the word starter in their artifact ID.
+
+	Your build file will be significantly smaller and easier to manage because you wont need to declare a dependency on every library you might need.
+
+
+	Your are able to think of your dependencies in terms of what capabilities they provide, rather than their library names(web starter dependency)
+
+
+Spring Boot Plugin:
+
+	- It provides a Maven goal that enables you to run the application using maven
+	- It ensures that all dependency libraries are included within the executable JAR
+
+-------
+
+
+Bootstrapping the application
+
+@SpringBootApplication : is a composite annotation that combines the following annotations:
+
+	- @SpringBootConfiguration : Designates this class a configuration class. You can add Java based Spring framework configuration to this class if you need to. This annotation is a specialized form of the @Configuration annotation.
+
+	- @EnableAutoConfiguration :  Enables Spring Boot automatic configiration. It tells Spring Boot to automatically configure any components that it thinks you will need.
+
+	- @ComponentScan : Enables component scanning.
+
+
+
+main() method :  calls a static run method on SpringApplication class, which performs the actual bootstrapping of the application, creating the Spring Application context. The 2 parameters passed to run() method are a configuration class, and the commmand line arguments.
+
+
+ApplicationContext container = SpringApplication.run(CydeoApplication.class, args);
+
+
+-----
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
