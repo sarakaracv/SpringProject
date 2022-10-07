@@ -11,5 +11,4 @@ public class Mentor {
     private String lastName;
     private int age;
     private Gender gender;
-
 }

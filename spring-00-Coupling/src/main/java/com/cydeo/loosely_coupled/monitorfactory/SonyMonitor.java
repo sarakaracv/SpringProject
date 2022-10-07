@@ -1,6 +1,5 @@
 package com.cydeo.loosely_coupled.monitorfactory;
 
-import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.Setter;
 

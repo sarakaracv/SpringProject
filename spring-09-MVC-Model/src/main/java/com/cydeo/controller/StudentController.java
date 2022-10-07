@@ -18,22 +18,28 @@ public class StudentController {
 
         model.addAttribute("name","Cydeo");
         model.addAttribute("course","MVC");
-        String subject="spring boot";
-        model.addAttribute(subject,subject);
 
-        int studentid=new Random().nextInt();
-        model.addAttribute("id",studentid);
-        List<Integer> numbers= new ArrayList<>();
+        String subject = "Spring Boot";
+        model.addAttribute("subject",subject);
+
+        int studentId = new Random().nextInt();
+        model.addAttribute("id",studentId);
+
+        List<Integer> numbers = new ArrayList<>();
         numbers.add(4);
         numbers.add(5);
         numbers.add(6);
         numbers.add(7);
 
         model.addAttribute("numbers",numbers);
-        LocalDate dt= LocalDate.now();
+
+        LocalDate dt = LocalDate.now();
         model.addAttribute("date",dt);
-Student student= new Student(1,"Mike","Smith");
+
+        Student student = new Student(1,"Mike","Smith");
         model.addAttribute("student",student);
+
+
         return "student/welcome";
     }
 }
