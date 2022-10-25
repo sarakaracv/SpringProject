@@ -1,6 +1,6 @@
-package com.cydeo.spring12data.repository;
+package com.cydeo.repository;
 
-import com.cydeo.spring12data.entitiy.Cart;
+import com.cydeo.entity.Cart;
 import org.springframework.data.jpa.repository.JpaRepository;
 
 public interface CartRepository extends JpaRepository<Cart,Long> {

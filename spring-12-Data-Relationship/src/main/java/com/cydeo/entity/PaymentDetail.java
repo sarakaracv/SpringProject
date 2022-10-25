@@ -1,12 +1,12 @@
-package com.cydeo.spring12data.entitiy;
+package com.cydeo.entity;
 
-import com.cydeo.spring12data.enums.Status;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
 import javax.persistence.*;
 import java.math.BigDecimal;
 import java.time.LocalDate;
+
 @Entity
 @Table(name = "paymentDetails")
 @NoArgsConstructor

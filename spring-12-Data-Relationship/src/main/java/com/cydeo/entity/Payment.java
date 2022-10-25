@@ -1,13 +1,13 @@
-package com.cydeo.spring12data.entitiy;
+package com.cydeo.entity;
 
-import com.cydeo.spring12data.enums.Status;
+import com.cydeo.enums.Status;
 import lombok.Data;
 import lombok.NoArgsConstructor;
-import org.hibernate.procedure.spi.ParameterRegistrationImplementor;
 
 import javax.persistence.*;
 import java.math.BigDecimal;
 import java.time.LocalDate;
+
 @Entity
 @NoArgsConstructor
 @Data
@@ -26,10 +26,13 @@ public class Payment {
     @Enumerated(EnumType.STRING)
     private Status paymentStatus;
 
-    //    @OneToOne(cascade = CascadeType.ALL)
+//    @OneToOne(cascade = CascadeType.ALL)
     @OneToOne(cascade = {CascadeType.PERSIST,CascadeType.MERGE})
     @JoinColumn(name = "payment_detail_id")
     private PaymentDetail paymentDetail;
+
+    @ManyToOne
+    private Merchant merchant;
 
     public Payment(LocalDate createdDate, BigDecimal amount, Status paymentStatus) {
         this.createdDate = createdDate;
