@@ -2,14 +2,13 @@ package com.cydeo.entity;
 
 import lombok.Data;
 import lombok.NoArgsConstructor;
-import org.hibernate.procedure.spi.ParameterRegistrationImplementor;
 
 import javax.persistence.Entity;
 
 @Entity
+@NoArgsConstructor   //BREAK TILL 12:10
 @Data
-@NoArgsConstructor
-public class Genre extends BaseEntity{
+public class Genre extends BaseEntity {
 
     private String name;
 }
