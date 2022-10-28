@@ -25,16 +25,20 @@ public class QueryDemo implements CommandLineRunner {
         System.out.println("-----------REGIONS-----------");
 
         System.out.println("findByCountry:" + regionRepository.findByCountry("Canada"));
-        System.out.println("findByCountryContaining:" + regionRepository.findByCountryContaining("United"));
-        System.out.println("findByCountryContainsOrderByRegion:" + regionRepository.findByCountryContainsOrderByRegion("United"));
+        System.out.println("findByCountryContaining:" +
+                regionRepository.findByCountryContaining("United"));
+        System.out.println("findByCountryContainsOrderByRegion:" +
+                regionRepository.findByCountryContainsOrderByRegion("United"));
         System.out.println("findTop2ByCountry:" + regionRepository.findTop2ByCountry("United States"));
-        System.out.println("findTopByCountryContainsOrderByRegion:" + regionRepository.findTopByCountryContainsOrderByRegion("United States"));
+        System.out.println("findTopByCountryContainsOrderByRegion:" +
+                regionRepository.findTopByCountryContainsOrderByRegion("United States"));
 
         System.out.println("-----------DEPARTMENTS----------");
         System.out.println("findByDepartment:" + departmentRepository.findByDepartment("Furniture"));
         System.out.println("findByDivision:" + departmentRepository.findByDivision("Health"));
         System.out.println("findByDivisionEndsWith:" + departmentRepository.findByDivisionEndsWith("ics"));
-        System.out.println("findDistinctTop3ByDivisionContains:" + departmentRepository.findDistinctTop3ByDivisionContains("Hea"));
+        System.out.println("findDistinctTop3ByDivisionContains:" +
+                departmentRepository.findDistinctTop3ByDivisionContains("Hea"));
 
         System.out.println("-----------EMPLOYEES----------");
         System.out.println(employeeRepository.retrieveEmployeeDetail());
