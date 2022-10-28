@@ -5,6 +5,7 @@ import com.sun.jdi.connect.ListeningConnector;
 import org.springframework.data.jpa.repository.JpaRepository;
 
 import java.util.List;
+import java.util.Optional;
 import java.util.stream.Stream;
 
 public interface CourseRepository extends JpaRepository<Course,Long> {
@@ -33,6 +34,7 @@ public interface CourseRepository extends JpaRepository<Course,Long> {
 
     Stream<Course> streamAllByCategory(String category);
 
+    //static Optional<Course> findByCategory(String category)
 
 
 }
