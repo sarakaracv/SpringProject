@@ -19,7 +19,7 @@ import com.fasterxml.jackson.annotation.JsonPropertyOrder;
     "zipcode",
     "geo"
 })
-//@Generated("jsonschema2pojo")
+@Generated("jsonschema2pojo")
 public class Address {
 
     @JsonProperty("street")

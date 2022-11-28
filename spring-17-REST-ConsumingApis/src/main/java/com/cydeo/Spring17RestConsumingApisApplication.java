@@ -11,6 +11,7 @@ import org.springframework.web.client.RestTemplate;
 public class Spring17RestConsumingApisApplication {
 
     public static void main(String[] args) {
+
         SpringApplication.run(Spring17RestConsumingApisApplication.class, args);
     }
 
@@ -18,5 +19,4 @@ public class Spring17RestConsumingApisApplication {
     public RestTemplate restTemplate(){
         return new RestTemplate();
     }
-
 }
