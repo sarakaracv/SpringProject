@@ -1,0 +1,133 @@
+openapi: 3.0.0
+info:
+  version: '1.0'
+  title: cydeo open api documentation
+  description: open api traning documentation
+  contact:
+    url: 'https://cydeo.com'
+    name: 'Cydeo Support'
+    email: 'support@cydeo.com'
+servers:
+  # Added by API Auto Mocking Plugin
+  - description: SwaggerHub API Auto Mocking
+    url: https://virtserver.swaggerhub.com/GULCINSARANKARA/open-api-training/1.0
+  - url: 'https://dev.cydeo.com'
+    description: 'Development Server'
+  - url: 'https://qa.cydeo.com'
+    description: 'Testing Server'
+  - url: 'https://prod.cydeo.com'
+    description: 'Production Server'
+paths:
+  /v1/courses/list:
+    get:
+      summary: 'Course List'
+      description: 'Get a list of courses'
+      tags:
+        - 'Course'
+      responses:
+        '200':
+          description: 'List of courses'
+          content:
+            'application/json':
+              schema:
+                type: 'array'
+                minimum: 1
+                maximum: 100
+                items:
+                  type: 'object'
+                  properties:
+                    courseName:
+                      type: 'string'
+                      description: 'Name of the course'
+                      minLength: 2
+                      maxLength: 100
+                      example: 'Spring'
+  /v1/courses:
+    get:
+      summary: 'Course By Id'
+      description: 'Get a single course by id'
+      tags:
+        - 'Course'
+      parameters:
+        - name: 'courseId'
+          in: 'query'
+          required: true
+          schema:
+            type: 'integer'
+            format: 'int32'
+      responses:
+        '200':
+          description: 'course by id'
+          content:
+            'application/json':
+              schema:
+                type: 'object'
+                properties:
+                  courseName:
+                    type: 'string'
+                    description: 'Name of the course'
+                    minLength: 2
+                    maxLength: 100
+                    example: 'Spring'
+
+  /v1/student/list:
+    get:
+      summary: 'Student List'
+      description: 'Get a list of students'
+      tags:
+        - 'Student'
+      responses:
+        '200':
+          description: 'List of students'
+          content:
+            'application/json':
+              schema:
+                $ref: '#/components/schemas/StudentList'
+
+components:
+  schemas:
+    Address:
+      type: 'object'
+      properties:
+        street:
+          type: 'string'
+          example: '112 John Smith Rd'
+        city:
+          type: 'string'
+          example: 'New York'
+        zipCode:
+          type: 'integer'
+          format: 'int32'
+          example: 22201
+        state:
+          type: 'string'
+          #enum: [VA, CA, TX, NY]
+          enum:
+            - VA
+            - CA
+            - TX
+            - NY
+    Student:
+      type: 'object'
+      properties:
+        id:
+          type: 'string'
+          format: 'uuid'
+        firstName:
+          type: 'string'
+          minLength: 2
+          maxLength: 100
+          example: 'John'
+        lastName:
+          type: 'string'
+          minLength: 2
+          maxLength: 100
+          example: 'Smith'
+        address:
+          $ref: '#/components/schemas/Address'
+    StudentList:
+      type: 'array'
+      minimum: 1
+      maximum: 100
+      items:
+        $ref: '#/components/schemas/Student'
