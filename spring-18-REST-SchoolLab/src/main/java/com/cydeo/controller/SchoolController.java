@@ -9,9 +9,7 @@ import com.cydeo.service.StudentService;
 import com.cydeo.service.TeacherService;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
@@ -53,6 +51,12 @@ public class SchoolController {
     public ResponseEntity<ResponseWrapper> getAddress(@PathVariable("id") Long id) throws Exception {
         AddressDTO addressDTO = addressService.findById(id);
         return ResponseEntity.ok(new ResponseWrapper("Address is successfully retrieved", addressDTO));
+    }
+
+    @PutMapping("/address/{id}")
+    public AddressDTO updateAddress(@PathVariable("id") Long id, @RequestBody AddressDTO addressDTO) throws Exception {
+        addressDTO.setId(id);
+        return addressService.update(addressDTO);
     }
 
 }

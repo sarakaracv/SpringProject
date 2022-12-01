@@ -5,14 +5,14 @@
     <parent>
         <groupId>org.springframework.boot</groupId>
         <artifactId>spring-boot-starter-parent</artifactId>
-        <version>2.7.5</version>
+        <version>2.7.6</version>
         <relativePath/> <!-- lookup parent from repository -->
     </parent>
     <groupId>com.cydeo</groupId>
-    <artifactId>Spring-16-REST-Jackson</artifactId>
+    <artifactId>spring-17-REST-ConsumingApis</artifactId>
     <version>0.0.1-SNAPSHOT</version>
-    <name>Spring-16-REST-Jackson</name>
-    <description>Spring-16-REST-Jackson</description>
+    <name>spring-17-REST-ConsumingApis</name>
+    <description>spring-17-REST-ConsumingApis</description>
     <properties>
         <java.version>11</java.version>
     </properties>
@@ -44,6 +44,15 @@
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-starter-test</artifactId>
             <scope>test</scope>
+        </dependency>
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-webflux</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>org.springframework.cloud</groupId>
+            <artifactId>spring-cloud-starter-openfeign</artifactId>
+            <version>3.1.5</version>
         </dependency>
     </dependencies>
 
