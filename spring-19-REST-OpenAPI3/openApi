@@ -69,8 +69,10 @@ paths:
                     minLength: 2
                     maxLength: 100
                     example: 'Spring'
+        '404':
+          description: 'No course found'
 
-  /v1/student/list:
+  /v1/students/list:
     get:
       summary: 'Student List'
       description: 'Get a list of students'
@@ -83,6 +85,98 @@ paths:
             'application/json':
               schema:
                 $ref: '#/components/schemas/StudentList'
+    post:
+      summary: 'Create Student'
+      description: 'Create a new student'
+      tags:
+        - 'Student'
+      requestBody:
+        required: true
+        content:
+          'application/json':
+            schema:
+              $ref: '#/components/schemas/Student'
+      responses:
+        '201':
+          description: 'Student is created'
+          headers:
+            localization:
+              description: 'Location of the student'
+              schema:
+                type: 'string'
+                format: 'uri'
+                example: 'https://cydeo.com/students/{studentId}'
+          content:
+            'application/json':
+              schema:
+                $ref: '#/components/schemas/Student'
+
+  /v1/students/{studentId}:
+    get:
+      summary: 'Student By Id'
+      description: 'Get a single student by id'
+      tags:
+        - 'Student'
+      parameters:
+        - name: 'studentId'
+          in: 'path'
+          required: true
+          schema:
+            type: 'string'
+            format: 'uuid'
+      responses:
+        '200':
+          description: 'Student info'
+          content:
+            'application/json':
+              schema:
+                $ref: '#/components/schemas/Student'
+        '404':
+          description: 'No student found'
+    put:
+      summary: 'Update Student'
+      description: 'Update student by id'
+      tags:
+        - 'Student'
+      parameters:
+        - name: 'studentId'
+          in: 'path'
+          required: true
+          schema:
+            type: 'string'
+            format: 'uuid'
+      requestBody:
+        required: true
+        content:
+          'application/json':
+            schema:
+              $ref: '#/components/schemas/Student'
+      responses:
+        '200':
+          description: 'Student is updated'
+        '404':
+          description: 'Student not found'
+    delete:
+      summary: 'Delete Student'
+      description: 'Delete a student by id'
+      tags:
+        - 'Student'
+      parameters:
+        - name: 'studentId'
+          in: 'path'
+          required: true
+          schema:
+            type: 'string'
+            format: 'uuid'
+      responses:
+        '200':
+          description: 'Student is deleted'
+        '400':
+          description: 'Bad request'
+        '404':
+          description: 'Student not found'
+        '409':
+          description: 'Conflict'
 
 components:
   schemas:
@@ -111,6 +205,7 @@ components:
       type: 'object'
       properties:
         id:
+          readOnly: true
           type: 'string'
           format: 'uuid'
         firstName:
