@@ -21,7 +21,7 @@ paths:
   /v1/courses/list:
     get:
       summary: 'Course List'
-      description: 'Get a list of courses'
+      description: 'Get a **list** of **courses**'
       tags:
         - 'Course'
       responses:

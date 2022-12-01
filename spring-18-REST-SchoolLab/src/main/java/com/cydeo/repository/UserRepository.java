@@ -1,9 +1,9 @@
 package com.cydeo.repository;
 
-import com.cydeo.entity.Address;
+import com.cydeo.entity.User;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 
 @Repository
-public interface AddressRepository extends JpaRepository<Address, Long> {
+public interface UserRepository extends JpaRepository<User, Long> {
 }
