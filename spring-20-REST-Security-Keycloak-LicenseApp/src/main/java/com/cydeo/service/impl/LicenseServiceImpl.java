@@ -1,9 +1,9 @@
 package com.cydeo.service.impl;
 
+import com.cydeo.client.OrganizationFeignClient;
 import com.cydeo.model.License;
 import com.cydeo.model.Organization;
 import com.cydeo.repository.LicenseRepository;
-import com.cydeo.client.OrganizationFeignClient;
 import com.cydeo.service.LicenseService;
 import org.springframework.stereotype.Service;
 
