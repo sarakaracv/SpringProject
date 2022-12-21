@@ -1,7 +1,5 @@
 package com.cydeo.dto;
 
-import com.cydeo.dto.ProjectDTO;
-import com.cydeo.dto.UserDTO;
 import com.cydeo.enums.Status;
 import lombok.AllArgsConstructor;
 import lombok.Data;

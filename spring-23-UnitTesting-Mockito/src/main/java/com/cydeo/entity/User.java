@@ -1,15 +1,11 @@
 package com.cydeo.entity;
 
-import com.cydeo.entity.BaseEntity;
 import com.cydeo.enums.Gender;
-import lombok.Data;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
-import org.hibernate.annotations.Where;
 
 import javax.persistence.*;
-import java.time.LocalDateTime;
 
 @Getter
 @Setter
